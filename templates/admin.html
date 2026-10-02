@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - KreasiDigital</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+
+            <div class="logo">
+                Kreasi<span>Digital</span>
+            </div>
+
+            <a href="index.html" class="back-home">
+                ← Kembali ke Website
+            </a>
+
+        </nav>
+    </header>
+
+
+    <main class="admin-page">
+
+        <div class="admin-header">
+
+            <div>
+                <p class="small-title">ADMIN PANEL</p>
+                <h1>Dashboard</h1>
+                <p>
+                    Kelola informasi bisnis KreasiDigital
+                    melalui halaman ini.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- STATISTIK -->
+
+        <div class="stats-container">
+
+            <div class="stat-card">
+                <span>📦</span>
+                <h2>24</h2>
+                <p>Total Pesanan</p>
+            </div>
+
+            <div class="stat-card">
+                <span>⏳</span>
+                <h2>7</h2>
+                <p>Pesanan Diproses</p>
+            </div>
+
+            <div class="stat-card">
+                <span>✓</span>
+                <h2>17</h2>
+                <p>Pesanan Selesai</p>
+            </div>
+
+            <div class="stat-card">
+                <span>💰</span>
+                <h2>Rp1,2Jt</h2>
+                <p>Total Pendapatan</p>
+            </div>
+
+        </div>
+
+
+        <!-- PESANAN -->
+
+        <section class="admin-section">
+
+            <div class="admin-section-header">
+                <div>
+                    <p class="small-title">DATA PESANAN</p>
+                    <h2>Pesanan Terbaru</h2>
+                </div>
+
+                <button class="admin-button">
+                    + Tambah Pesanan
+                </button>
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nama</th>
+                            <th>Layanan</th>
+                            <th>Status</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+    {% for data in pesanan %}
+
+    <tr>
+
+        <td>#{{ data[0] }}</td>
+
+        <td>{{ data[1] }}</td>
+
+        <td>{{ data[2] }}</td>
+
+        <td>
+            <span class="status waiting">
+                {{ data[4] }}
+            </span>
+        </td>
+
+        <td>
+            <button class="action-button">
+                Detail
+            </button>
+        </td>
+
+    </tr>
+
+    {% else %}
+
+    <tr>
+        <td colspan="5" style="text-align: center;">
+            Belum ada pesanan.
+        </td>
+    </tr>
+
+    {% endfor %}
+
+</tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <!-- LAYANAN -->
+
+        <section class="admin-section">
+
+            <div class="admin-section-header">
+
+                <div>
+                    <p class="small-title">KATALOG</p>
+                    <h2>Daftar Layanan</h2>
+                </div>
+
+                <button class="admin-button">
+                    + Tambah Layanan
+                </button>
+
+            </div>
+
+
+            <div class="admin-services">
+
+                <div class="admin-service">
+                    <div>
+                        <h3>📷 Edit Foto</h3>
+                        <p>Mulai dari Rp15.000</p>
+                    </div>
+
+                    <button class="action-button">
+                        Edit
+                    </button>
+                </div>
+
+
+                <div class="admin-service">
+                    <div>
+                        <h3>🎬 Edit Video</h3>
+                        <p>Mulai dari Rp35.000</p>
+                    </div>
+
+                    <button class="action-button">
+                        Edit
+                    </button>
+                </div>
+
+
+                <div class="admin-service">
+                    <div>
+                        <h3>🎨 Desain Grafis</h3>
+                        <p>Mulai dari Rp25.000</p>
+                    </div>
+
+                    <button class="action-button">
+                        Edit
+                    </button>
+                </div>
+
+
+                <div class="admin-service">
+                    <div>
+                        <h3>🌐 Website</h3>
+                        <p>Mulai dari Rp100.000</p>
+                    </div>
+
+                    <button class="action-button">
+                        Edit
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <h3>KreasiDigital</h3>
+        <p>Admin Dashboard</p>
+    </footer>
+
+</body>
+
+</html>
